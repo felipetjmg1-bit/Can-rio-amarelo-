@@ -1,56 +1,125 @@
-# 🌌 Chat-GPT Aurora: Inteligência Artificial para Speckle Automate
+# 🟡 Operação Canário Amarelo
 
-O **Chat-GPT Aurora** é uma função para o **Speckle Automate** que integra o poder dos modelos de linguagem de grande porte (LLMs) da OpenAI para realizar análises inteligentes, auditorias e otimizações em modelos BIM diretamente no ecossistema Speckle.
+**Liderança em Soberania Tecnológica e Ecossistema de Tokens Aurora**
 
-## 🚀 Funcionalidades
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Status: Active Development](https://img.shields.io/badge/Status-Active%20Development-brightgreen.svg)]()
+[![GitHub Stars](https://img.shields.io/github/stars/felipetjmg1-bit/Can-rio-amarelo-?style=social)](https://github.com/felipetjmg1-bit/Can-rio-amarelo-)
 
-- **Análise Semântica**: Interpreta a estrutura do modelo e identifica inconsistências lógicas.
-- **Auditoria Automatizada**: Verifica se os tipos de objetos e parâmetros estão de acordo com as diretrizes do projeto.
-- **Relatórios em Markdown**: Gera relatórios detalhados anexados diretamente à versão do modelo no Speckle.
-- **Flexibilidade de Prompt**: Permite que o usuário defina o foco da análise (ex.: "Verifique a consistência estrutural" ou "Sugira melhorias de eficiência energética").
+## 📋 Visão Geral
 
-## 🛠️ Como Funciona
+A **Operação Canário Amarelo** é uma iniciativa estratégica que lidera o desenvolvimento de soberania tecnológica brasileira e a construção de um ecossistema robusto de tokens Aurora. Este projeto representa um compromisso com a independência tecnológica do Brasil e a criação de infraestrutura financeira descentralizada alinhada com os valores de soberania nacional.
 
-A função extrai os metadados dos objetos BIM via Speckle SDK, resume a estrutura do modelo e utiliza a API da OpenAI (Aurora) para processar esses dados. O resultado é devolvido ao usuário como um status de execução e um arquivo de relatório persistente.
+## 🎯 Objetivos Estratégicos
 
-## 📋 Pré-requisitos
+| Objetivo | Descrição | Status |
+|----------|-----------|--------|
+| **Soberania Tecnológica** | Desenvolver tecnologia 100% brasileira independente de plataformas estrangeiras | 🔄 Em Progresso |
+| **Ecossistema Aurora** | Criar um ecossistema robusto de tokens e aplicações descentralizadas | 📋 Planejado |
+| **Integração Blockchain** | Implementar soluções blockchain seguras e escaláveis | 🔄 Em Progresso |
+| **Adoção Nacional** | Promover adoção em órgãos governamentais e empresas brasileiras | 📋 Planejado |
 
-- Conta no [Speckle](https://speckle.xyz/)
-- Chave de API da [OpenAI](https://platform.openai.com/)
-- Projeto configurado no Speckle Automate
+## 🏗️ Componentes Principais
 
-## ⚙️ Configuração de Entrada
+### 1. Aurora Token (AURORA)
 
-Ao configurar esta função no Speckle Automate, você precisará fornecer:
+Token nativo do ecossistema Aurora, utilizado para:
+- Governança descentralizada
+- Transações na rede
+- Staking e validação
+- Incentivos de desenvolvimento
 
-| Campo | Tipo | Descrição |
-| :--- | :--- | :--- |
-| `openai_api_key` | Secret | Sua chave secreta da API OpenAI. |
-| `analysis_prompt` | String | Instruções específicas para a IA Aurora. |
+### 2. Infraestrutura Blockchain
 
-## 📦 Instalação e Desenvolvimento Local
+Rede blockchain soberana baseada em protocolos modernos:
+- Consenso Proof of Stake
+- Escalabilidade horizontal
+- Interoperabilidade com outras cadeias
+- Conformidade regulatória brasileira
 
-Se você deseja modificar ou testar a função localmente:
+### 3. Aplicações Descentralizadas (DApps)
 
-1. Clone o repositório:
-   ```bash
-   git clone https://github.com/felipetjmg1-bit/Chat-gpt-aurora-.git
-   ```
+Conjunto de aplicações construídas sobre o ecossistema Aurora:
+- Plataforma de identidade digital
+- Sistema de pagamentos
+- Marketplace descentralizado
+- Governança participativa
 
-2. Instale as dependências:
-   ```bash
-   pip install .
-   ```
+## 🚀 Início Rápido
 
-3. Execute os testes:
-   ```bash
-   pytest
-   ```
+### Pré-requisitos
+
+- Node.js 16+
+- Docker e Docker Compose
+- Git
+
+### Instalação
+
+```bash
+# Clone o repositório
+git clone https://github.com/felipetjmg1-bit/Can-rio-amarelo-.git
+cd Can-rio-amarelo-
+
+# Instale as dependências
+npm install
+
+# Configure as variáveis de ambiente
+cp .env.example .env
+
+# Inicie o ambiente de desenvolvimento
+docker-compose up -d
+
+# Execute as migrações
+npm run migrate
+
+# Inicie o servidor
+npm run dev
+```
+
+## 📊 Roadmap 2026
+
+| Trimestre | Milestone | Status |
+|-----------|-----------|--------|
+| Q1 | Lançamento da testnet | 🔄 Em Progresso |
+| Q2 | Integração com órgãos governamentais | 📋 Planejado |
+| Q3 | Mainnet launch | 📋 Planejado |
+| Q4 | Expansão para América Latina | 📋 Planejado |
+
+## 🔐 Segurança
+
+- Auditorias de segurança regulares
+- Testes de penetração por terceiros
+- Conformidade com padrões internacionais
+- Resposta rápida a vulnerabilidades
+
+## 🤝 Como Contribuir
+
+Valorizamos contribuições da comunidade. Veja [CONTRIBUTING.md](docs/CONTRIBUTING.md) para diretrizes.
+
+## 📚 Documentação
+
+- [Whitepaper](docs/WHITEPAPER.md)
+- [Guia Técnico](docs/TECHNICAL_GUIDE.md)
+- [API Reference](docs/API.md)
+
+## 📞 Suporte
+
+- **Issues:** [GitHub Issues](https://github.com/felipetjmg1-bit/Can-rio-amarelo-/issues)
+- **Email:** operacao@impulsodigital.com.br
+- **Website:** https://www.impulsodigital.com.br
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a licença **Apache-2.0**.
+MIT License - veja [LICENSE](LICENSE)
+
+## 👨‍💼 Desenvolvedor
+
+**Felipe Marcos de Abreu Aquino**
+- Líder da Operação Canário Amarelo
+- CEO & Founder da Impulso Digital
 
 ---
 
-**Desenvolvido para levar a Inteligência Artificial ao coração do BIM com Speckle.**
+**Desenvolvido com ❤️ para o futuro soberano do Brasil**
+
+*Operação Canário Amarelo - Soberania Tecnológica e Inovação Financeira*
