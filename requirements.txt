@@ -1,0 +1,6 @@
+gradio==6.15.2
+openai==2.38.0
+pydantic==2.13.4
+specklepy==3.2.8
+
+speckle-automate>=0.1.0
