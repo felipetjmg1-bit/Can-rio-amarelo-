@@ -1,5 +1,5 @@
 gradio==6.19.0
-openai==2.44.0
+openai==2.48.0
 pydantic==2.13.4
 specklepy==2026.6.0
 
