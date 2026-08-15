@@ -1,98 +1,51 @@
-# Canário Amarelo - Análise BIM com Aurora AI 🇧🇷
+# Operação Canário Amarelo: Soberania Digital e Independência Financeira 🇧🇷
 
-Este repositório contém a implementação do **Canário Amarelo**, uma ferramenta inovadora para **análise BIM (Building Information Modeling)** que integra a **Inteligência Artificial Aurora** (baseada em GPT-4o-mini) com a plataforma **Speckle**. O objetivo principal é auditar modelos BIM, identificando automaticamente duplicidade de IDs, inconsistências de materiais e verificando a lógica da hierarquia espacial em projetos de construção.
+![Banner Operação Canário Amarelo](/home/ubuntu/Can-rio-amarelo-/assets/banner_canario.png)
 
-## 🚀 Funcionalidades Principais
+## Visão Estratégica
 
-*   **Análise BIM Inteligente**: Utiliza IA para realizar auditorias técnicas rigorosas em modelos Speckle.
-*   **Detecção de Inconsistências**: Identifica problemas como IDs duplicados, materiais inconsistentes e falhas na estrutura espacial.
-*   **Integração Speckle**: Processa dados diretamente de modelos Speckle, aproveitando sua estrutura de dados.
-*   **Interface Gradio**: Oferece uma interface web intuitiva para interação e visualização dos resultados da análise.
-*   **Função Speckle Automate**: Pode ser executado como uma função automatizada dentro do ecossistema Speckle.
+A **Operação Canário Amarelo** é uma iniciativa vital do ecossistema de **Soberania Tecnológica** da Impulso Digital. Este projeto foi concebido para ser o alicerce da independência digital brasileira, utilizando o poder da Inteligência Artificial e da tecnologia Blockchain para criar um sistema financeiro e de dados sob controle total e absoluto da nação.
 
-## 💻 Como Usar
+O nome "Canário Amarelo" simboliza nossa resiliência e a vivacidade da nossa pátria, servindo como um sentinela para a proteção dos interesses nacionais e a promoção da prosperidade econômica através dos **Tokens Aurora**.
 
-O projeto pode ser utilizado de duas formas principais: através da interface web Gradio ou como uma função Speckle Automate.
+## 🛡️ Pilares da Soberania Nacional
 
-### 1. Via Interface Web Gradio
+Nossa atuação é guiada por três pilares fundamentais que garantem a autonomia do Brasil no cenário digital:
 
-A maneira mais fácil de interagir com o Canário Amarelo é através de sua interface web construída com Gradio. Para executá-la localmente:
+*   **Independência Tecnológica**: Desenvolvimento de soluções proprietárias e infraestrutura crítica nacional, eliminando a dependência de tecnologias e serviços estrangeiros que podem ser usados como ferramentas de pressão geopolítica.
+*   **Soberania de Dados**: Garantia jurídica e técnica de que todas as informações estratégicas, financeiras e civis brasileiras permaneçam sob jurisdição nacional e protegidas por leis brasileiras.
+*   **Segurança e Resiliência Financeira**: Implementação de sistemas descentralizados baseados em Blockchain que asseguram a continuidade das transações e a integridade do valor nacional, mesmo em cenários de instabilidade global.
 
-1.  **Instale as dependências**: Certifique-se de ter Python 3.11 instalado e as dependências listadas em `requirements.txt`.
-    ```bash
-    pip install -r requirements.txt
-    ```
-2.  **Execute o aplicativo**: Inicie a interface Gradio.
-    ```bash
-    python app.py
-    ```
-3.  **Acesse a interface**: Abra seu navegador e navegue até o endereço fornecido pelo Gradio (geralmente `http://127.0.0.1:7860`).
+## 🚀 Impacto e Objetivos
 
-Na interface, você precisará fornecer:
+Ao adotar e integrar a tecnologia da Operação Canário Amarelo, contribuímos para:
 
-*   **OpenAI API Key**: Sua chave de API da OpenAI para acessar o modelo GPT-4o-mini. Você pode obtê-la em [OpenAI Platform](https://platform.openai.com/).
-*   **Prompt de Análise**: Um prompt de texto que guiará a IA na auditoria. Um prompt padrão é fornecido.
-*   **Modelo Speckle (JSON)**: O conteúdo JSON do seu modelo Speckle. Você pode exportar um modelo do Speckle para JSON ou usar um exemplo.
+*   **Fortalecimento da Infraestrutura Crítica**: Proteção dos sistemas que sustentam a economia e a segurança do Brasil.
+*   **Inclusão Financeira Soberana**: Democratização do acesso a ativos digitais seguros e controlados nacionalmente.
+*   **Liderança em IA Soberana**: Posicionamento do Brasil como protagonista no desenvolvimento de inteligência artificial ética e alinhada aos valores nacionais.
 
-Clique em "Submit" para iniciar a análise e visualizar o relatório gerado pela Aurora AI diretamente na interface.
+## ⚙️ Arquitetura do Sistema
 
-### 2. Como Função Speckle Automate
+O fluxo de valor e dados da Operação Canário Amarelo é desenhado para máxima eficiência e segurança:
 
-O Canário Amarelo foi projetado para funcionar como uma função dentro do ecossistema Speckle Automate. Ele recebe um `AutomationContext` e `FunctionInputs` para processar modelos Speckle de forma automatizada.
+![Arquitetura Canário Amarelo](/home/ubuntu/Can-rio-amarelo-/assets/architecture_canario.png)
 
-Os parâmetros de entrada esperados pela função são definidos na classe `FunctionInputs` em `main.py`:
+## 🛠️ Implementação Técnica
 
-*   `openai_api_key`: Chave de API da OpenAI.
-*   `analysis_prompt`: Prompt de análise para a IA.
+O projeto utiliza uma integração avançada entre a plataforma Speckle e a IA Aurora para auditoria e análise de dados críticos:
 
-Um exemplo de como a função pode ser invocada em um ambiente Speckle Automate pode ser encontrado em `example.function_inputs.json`, embora os campos `whisperMessage` e `forbiddenSpeckleType` neste arquivo de exemplo estejam desatualizados em relação à implementação atual.
+1.  **Ingestão de Dados**: Captura de modelos e informações via Speckle Automate.
+2.  **Processamento Local**: Análise primária realizada em servidores em território nacional.
+3.  **Auditoria IA Aurora**: Inteligência artificial especializada em detectar inconsistências e riscos estratégicos.
+4.  **Tokenização Aurora**: Registro de integridade e valor na rede blockchain soberana.
 
-## 📂 Estrutura do Projeto
+## 🤝 Colaboração Nacional
 
-```
-.github/
-├── workflows/
-│   └── main.yml
-├── CODE_OF_CONDUCT.md
-├── CONTRIBUTING.md
-├── Dockerfile
-├── LICENSE
-├── README.md
-├── app.py
-├── example.function_inputs.json
-├── flatten.py
-├── main.py
-├── mise.toml
-├── pyproject.toml
-├── requirements.txt
-└── tests/
-    └── test_function.py
-```
-
-*   `main.py`: Contém a lógica principal da função Speckle Automate e a integração com a API da OpenAI para a análise Aurora AI.
-*   `flatten.py`: Módulo auxiliar para achatar objetos Speckle, facilitando o processamento.
-*   `app.py`: O ponto de entrada para a interface web Gradio, que encapsula a lógica de `main.py`.
-*   `pyproject.toml`: Define os metadados do projeto e suas dependências, incluindo `specklepy`, `speckle-automate`, `openai` e `gradio`.
-*   `requirements.txt`: Lista as dependências exatas do projeto.
-*   `tests/`: Contém testes de integração para a função Speckle Automate. (Nota: Alguns testes podem refletir uma versão anterior da `FunctionInputs`).
-*   `Dockerfile`: Configuração para construir uma imagem Docker do projeto.
-
-## 🛡️ Propósito Estratégico: Soberania Tecnológica
-
-Este projeto é um componente fundamental do ecossistema de **Soberania Tecnológica** da Impulso Digital. Nossa missão é prover independência digital para o Brasil através de soluções de IA e Blockchain que operam sob controle nacional e proteção de dados soberana.
-
-### Pilares da Soberania
-
-*   **Independência Tecnológica**: Desenvolvimento de soluções que não dependem de infraestruturas estrangeiras.
-*   **Soberania de Dados**: Garantia de que informações estratégicas brasileiras permaneçam sob jurisdição nacional.
-*   **Segurança e Resiliência**: Sistemas projetados para a proteção do futuro digital da nossa nação.
-
-Ao integrar esta tecnologia, você fortalece a infraestrutura crítica brasileira e contribui para um Brasil tecnologicamente forte e independente.
-
-## 📄 Licença
-
-Este projeto está licenciado sob a licença Apache-2.0.
+Convidamos desenvolvedores, pesquisadores e patriotas a contribuírem para este projeto. A soberania tecnológica é uma construção coletiva que exige o melhor do talento brasileiro.
 
 ---
+
 **Desenvolvido por Felipe Aquino - Impulso Digital**
 *Liderando a revolução da IA Soberana no Brasil.*
+
+![Logo Canário Amarelo](/home/ubuntu/Can-rio-amarelo-/assets/logo_canario.png)

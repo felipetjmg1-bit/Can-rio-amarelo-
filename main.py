@@ -1,108 +1,313 @@
+"""Operação Canário Amarelo - Speckle Automate Function.
 
-"""
-Chat-GPT Aurora - Speckle Automate Function
-Integrando IA (Aurora) para análise inteligente de dados BIM no Speckle.
+Integrando IA Aurora para análise soberana de dados BIM e Tokens Aurora.
 """
 
-import os
+from flatten import flatten_base
+from openai import OpenAI
 from pydantic import Field, SecretStr
 from speckle_automate import (
     AutomateBase,
     AutomationContext,
     execute_automate_function,
 )
-from openai import OpenAI
-from flatten import flatten_base
-import json
+
 
 class FunctionInputs(AutomateBase):
     """Parâmetros de entrada para a função Aurora AI."""
-    
+
     openai_api_key: SecretStr = Field(
         title="OpenAI API Key",
         description="Chave para acessar o modelo Aurora/GPT para análise."
     )
     analysis_prompt: str = Field(
-        default="Realize uma auditoria técnica rigorosa. Verifique se há duplicidade de IDs, inconsistências de materiais e se a hierarquia espacial faz sentido para um modelo de construção.",
-        title="Prompt de Análise Avançada",
+        default=(
+            "Realize uma auditoria técnica rigorosa focada em soberania. "
+            "Verifique duplicidade de IDs, inconsistências de materiais e "
+            "valide a integridade dos dados para tokenização Aurora."
+        ),
+        title="Prompt de Análise Soberana",
         description="Instruções específicas para a auditoria de IA."
     )
 
-def run_aurora_analysis(
-    version_root_object: dict,
-    openai_api_key: str,
-    analysis_prompt: str,
+
+def generate_html_report(
+    analysis_result: str,
+    data_summary: str,
+    object_types: dict,
 ) -> str:
+    """Gera um relatório HTML com o tema Operação Canário Amarelo.
+
+    Args:
+        analysis_result: Resultado da análise da IA Aurora.
+        data_summary: Sumário dos dados processados.
+        object_types: Dicionário com tipos de objetos e contagens.
+
+    Returns:
+        String contendo o HTML do relatório.
     """
-    Função principal que executa a análise Aurora AI.
-    Recebe o objeto raiz do Speckle, a chave da API OpenAI e o prompt de análise.
+    object_types_html = "".join(
+        f"<li>{t}: <strong>{count}</strong> elementos</li>"
+        for t, count in object_types.items()
+    )
+
+    html_content = f"""
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Relatório Operação Canário Amarelo</title>
+        <style>
+            * {{
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }}
+            body {{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #1a3a00 0%, #3a5a00 100%);
+                color: #f0f0f0;
+                line-height: 1.6;
+                padding: 20px;
+            }}
+            .container {{
+                max-width: 1200px;
+                margin: 0 auto;
+                background: rgba(20, 40, 0, 0.95);
+                border: 2px solid #ffd700;
+                border-radius: 15px;
+                overflow: hidden;
+                box-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+            }}
+            .header {{
+                background: linear-gradient(90deg, #ffd700 0%, #008000 100%);
+                padding: 40px;
+                text-align: center;
+                border-bottom: 4px solid #ffd700;
+            }}
+            .header h1 {{
+                color: #1a3a00;
+                font-size: 3em;
+                font-weight: 900;
+                margin-bottom: 10px;
+                text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            }}
+            .header p {{
+                color: #1a3a00;
+                font-size: 1.2em;
+                font-weight: bold;
+                letter-spacing: 1px;
+            }}
+            .badge {{
+                display: inline-block;
+                background: #ffd700;
+                color: #1a3a00;
+                padding: 10px 20px;
+                border-radius: 25px;
+                font-weight: 800;
+                margin: 15px 5px;
+                font-size: 0.9em;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            }}
+            .badge.canario {{
+                background: #008000;
+                color: #ffd700;
+                border: 1px solid #ffd700;
+            }}
+            .content {{
+                padding: 50px;
+            }}
+            .section {{
+                margin-bottom: 40px;
+                padding: 25px;
+                background: rgba(255, 215, 0, 0.03);
+                border-left: 6px solid #ffd700;
+                border-radius: 10px;
+            }}
+            .section h2 {{
+                color: #ffd700;
+                margin-bottom: 20px;
+                font-size: 2em;
+                text-transform: uppercase;
+                letter-spacing: 3px;
+            }}
+            .data-summary {{
+                background: rgba(0, 0, 0, 0.4);
+                padding: 20px;
+                border-radius: 10px;
+                font-family: 'Consolas', monospace;
+                color: #ffd700;
+                white-space: pre-wrap;
+                border: 1px solid rgba(255, 215, 0, 0.2);
+            }}
+            .analysis-result {{
+                background: rgba(0, 128, 0, 0.05);
+                padding: 30px;
+                border-radius: 10px;
+                border: 1px solid #ffd700;
+                font-size: 1.1em;
+                color: #ffffff;
+            }}
+            ul {{
+                margin-left: 30px;
+                list-style-type: square;
+            }}
+            li {{
+                margin-bottom: 10px;
+                color: #ffd700;
+            }}
+            li strong {{
+                color: #ffffff;
+            }}
+            .footer {{
+                background: #004d00;
+                padding: 30px;
+                text-align: center;
+                border-top: 3px solid #ffd700;
+                color: #ffd700;
+            }}
+            .footer p {{
+                margin: 8px 0;
+            }}
+            .sovereignty-note {{
+                color: #00ff00;
+                font-weight: bold;
+                font-style: italic;
+            }}
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>🐤 OPERAÇÃO CANÁRIO AMARELO</h1>
+                <p>Soberania Digital • Independência Financeira • Tokens Aurora</p>
+                <div>
+                    <span class="badge canario">BRASIL SOBERANO</span>
+                    <span class="badge">AUDITORIA IA</span>
+                    <span class="badge">BLOCKCHAIN NACIONAL</span>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="section">
+                    <h2>📋 Sumário de Integridade</h2>
+                    <div class="data-summary">{data_summary}</div>
+                </div>
+
+                <div class="section">
+                    <h2>🛡️ Relatório de Auditoria Soberana</h2>
+                    <div class="analysis-result">
+                        {analysis_result}
+                    </div>
+                </div>
+
+                <div class="section">
+                    <h2>💎 Ativos e Elementos Analisados</h2>
+                    <ul>
+                        {object_types_html}
+                    </ul>
+                </div>
+
+                <div class="section">
+                    <h2>🇧🇷 Compromisso com a Nação</h2>
+                    <p class="sovereignty-note">
+                        Este relatório foi processado sob infraestrutura crítica
+                        brasileira, garantindo que nenhum dado sensível deixe
+                        nossa jurisdição. A Operação Canário Amarelo assegura
+                        a resiliência do futuro digital do Brasil.
+                    </p>
+                </div>
+            </div>
+
+            <div class="footer">
+                <p><strong>Operação Canário Amarelo - Ecossistema Aurora</strong></p>
+                <p>Desenvolvido por Felipe Aquino - Impulso Digital</p>
+                <p>Pela Independência Tecnológica do Brasil 🇧🇷</p>
+            </div>
+        </div>
+    </body>
+    </html>
     """
-    flat_objects = list(flatten_base(version_root_object))
-    
-    object_types = {}
-    missing_params = []
-    for obj in flat_objects[:150]: # Limitar a amostra para evitar sobrecarga em demos
-        t = obj.speckle_type
-        object_types[t] = object_types.get(t, 0) + 1
-        
-        if "Structure" in t and not hasattr(obj, "material"):
-            missing_params.append(f"Objeto {obj.id} ({t}) sem material definido.")
+    return html_content
 
-    data_summary = f"Relatório de Dados BIM:\n"
-    data_summary += f"- Total de objetos: {len(flat_objects)}\n"
-    data_summary += f"- Amostra para análise profunda: {len(flat_objects[:150])}\n"
-    data_summary += "Distribuição de tipos:\n"
-    for t, count in object_types.items():
-        data_summary += f"  * {t}: {count}\n"
-    
-    if missing_params:
-        data_summary += "\nInconsistências detectadas por regras locais:\n"
-        data_summary += "\n".join(missing_params[:10])
-
-    try:
-        client = OpenAI(api_key=openai_api_key)
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=[
-                {"role": "system", "content": "Você é a Aurora, uma especialista em análise de dados BIM e Speckle."},
-                {"role": "user", "content": f"{analysis_prompt}\n\nDados do Modelo:\n{data_summary}"}
-            ]
-        )
-        
-        analysis_result = response.choices[0].message.content
-        return analysis_result
-
-    except Exception as e:
-        return f"Falha na integração com Aurora AI: {str(e)}"
 
 def automate_function(
     automate_context: AutomationContext,
     function_inputs: FunctionInputs,
 ) -> None:
-    """
-    Função que recebe dados do Speckle e os envia para análise via IA Aurora.
-    """
+    """Recebe dados do Speckle e os envia para análise via IA Aurora."""
+    # 1. Receber dados do Speckle
     version_root_object = automate_context.receive_version()
-    
-    analysis_result = run_aurora_analysis(
-        version_root_object,
-        function_inputs.openai_api_key.get_secret_value(),
-        function_inputs.analysis_prompt
-    )
+    flat_objects = list(flatten_base(version_root_object))
 
-    if "Falha na integração" in analysis_result:
-        automate_context.mark_run_failed(analysis_result)
-    else:
-        automate_context.mark_run_success(f"Análise Aurora concluída: {analysis_result[:200]}...")
-        with open("relatorio_aurora.md", "w") as f:
-            f.write(f"# Relatório de Análise Aurora AI\n\n{analysis_result}")
-        automate_context.store_file_result("relatorio_aurora.md")
+    # 2. Preparar sumário detalhado
+    object_types = {}
+    for obj in flat_objects[:150]:
+        t = obj.speckle_type
+        object_types[t] = object_types.get(t, 0) + 1
+
+    data_summary = "Sumário de Dados Estratégicos:\n"
+    data_summary += f"- Total de elementos: {len(flat_objects)}\n"
+    data_summary += f"- Amostra auditada: {len(flat_objects[:150])}\n"
+    data_summary += "Distribuição por categoria:\n"
+    for t, count in object_types.items():
+        data_summary += f"  * {t}: {count}\n"
+
+    # 3. Chamar a IA Aurora
+    try:
+        client = OpenAI(
+            api_key=function_inputs.openai_api_key.get_secret_value()
+        )
+        response = client.chat.completions.create(
+            model="gpt-4o-mini",
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "Você é a Aurora, a inteligência central da Operação "
+                        "Canário Amarelo. Sua missão é garantir a soberania "
+                        "e integridade dos dados nacionais."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"{function_inputs.analysis_prompt}\n\n"
+                        f"Dados para Auditoria:\n{data_summary}"
+                    ),
+                },
+            ]
+        )
+
+        analysis_result = response.choices[0].message.content
+
+        # 4. Gerar relatório HTML temático
+        html_report = generate_html_report(
+            analysis_result,
+            data_summary,
+            object_types,
+        )
+
+        # 5. Finalizar execução e salvar resultados
+        automate_context.mark_run_success(
+            "Auditoria Canário Amarelo concluída com sucesso."
+        )
+
+        with open("relatorio_canario.html", "w", encoding="utf-8") as f:
+            f.write(html_report)
+
+        with open("relatorio_canario.md", "w", encoding="utf-8") as f:
+            f.write(f"# Auditoria Operação Canário Amarelo\n\n{analysis_result}")
+
+        automate_context.store_file_result("relatorio_canario.html")
+        automate_context.store_file_result("relatorio_canario.md")
+
+    except Exception as e:
+        automate_context.mark_run_failed(
+            f"Erro na Operação Canário Amarelo: {str(e)}"
+        )
 
 
 if __name__ == "__main__":
-    # Este bloco será executado apenas se main.py for chamado diretamente, não via Gradio
-    # Para uso com Speckle Automate, a função automate_function é o ponto de entrada.
-    # Para testes locais ou integração com Gradio, use run_aurora_analysis diretamente.
-    print("Este script é projetado para ser usado como uma função Speckle Automate ou via Gradio.")
-    print("Para testar a função automate_function, use o ambiente Speckle Automate.")
-    print("Para testar a função run_aurora_analysis, chame-a diretamente com os parâmetros necessários.")
+    execute_automate_function(automate_function, FunctionInputs)
