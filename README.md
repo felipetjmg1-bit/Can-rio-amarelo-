@@ -1,51 +1,66 @@
-# Operação Canário Amarelo: Soberania Digital e Independência Financeira 🇧🇷
+![Status: Experimental](https://img.shields.io/badge/Status-Experimental-blue) | [![Licença Apache-2.0](https://img.shields.io/github/license/felipetjmg1-bit/Can-rio-amarelo-)](LICENSE) | [![Patrocinar](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/felipetjmg1-bit)
 
-![Banner Operação Canário Amarelo](/home/ubuntu/Can-rio-amarelo-/assets/banner_canario.png)
+# Canário Amarelo — Função Speckle Automate
 
-## Visão Estratégica
+## Visão geral
 
-A **Operação Canário Amarelo** é uma iniciativa vital do ecossistema de **Soberania Tecnológica** da Impulso Digital. Este projeto foi concebido para ser o alicerce da independência digital brasileira, utilizando o poder da Inteligência Artificial e da tecnologia Blockchain para criar um sistema financeiro e de dados sob controle total e absoluto da nação.
+O README apresenta a Operação Canário Amarelo como uma iniciativa de soberania digital ligada à Impulso Digital, IA, blockchain e Tokens Aurora. O código público verificável, porém, implementa uma função Speckle Automate: recebe a versão de um modelo, conta tipos de objetos numa amostra de até 150 e envia esse resumo textual à API OpenAI (modelo gpt-4o-mini) para gerar relatórios HTML e Markdown. Não há implementação visível de tokenização ou de integração com blockchain; portanto, descreva isso como objetivo declarado, não como recurso implementado.
 
-O nome "Canário Amarelo" simboliza nossa resiliência e a vivacidade da nossa pátria, servindo como um sentinela para a proteção dos interesses nacionais e a promoção da prosperidade econômica através dos **Tokens Aurora**.
+## Objetivo e valor
 
-## 🛡️ Pilares da Soberania Nacional
+**Problema/escopo:** Função Speckle Automate em Python que resume tipos de objetos BIM e gera relatórios de análise via OpenAI.
 
-Nossa atuação é guiada por três pilares fundamentais que garantem a autonomia do Brasil no cenário digital:
+**Valor verificável hoje:** o repositório torna explícitos seus artefatos, interfaces e limitações para que mantenedores e contribuidores possam avaliar o que existe sem confundir demonstração, proposta e produção.
 
-*   **Independência Tecnológica**: Desenvolvimento de soluções proprietárias e infraestrutura crítica nacional, eliminando a dependência de tecnologias e serviços estrangeiros que podem ser usados como ferramentas de pressão geopolítica.
-*   **Soberania de Dados**: Garantia jurídica e técnica de que todas as informações estratégicas, financeiras e civis brasileiras permaneçam sob jurisdição nacional e protegidas por leis brasileiras.
-*   **Segurança e Resiliência Financeira**: Implementação de sistemas descentralizados baseados em Blockchain que asseguram a continuidade das transações e a integridade do valor nacional, mesmo em cenários de instabilidade global.
+## Arquitetura e tecnologias
 
-## 🚀 Impacto e Objetivos
+Fluxo de código verificável: ponto de entrada `execute_automate_function` → `AutomationContext.receive_version()` → `flatten_base` → contagem de tipos de objetos e composição de resumo → chamada OpenAI Chat Completions com gpt-4o-mini → geração e armazenamento de relatório HTML e Markdown. O README menciona um fluxo e imagem de arquitetura, mas não documenta infraestrutura/deploy; a árvore não contém workflows públicos do GitHub Actions. A arquitetura sistêmica mais ampla é não documentada pelo código disponível.
 
-Ao adotar e integrar a tecnologia da Operação Canário Amarelo, contribuímos para:
+```mermaid
+flowchart LR
+  S[Versão de modelo Speckle] --> F[Função Python]
+  F --> C[Resumo de tipos BIM]
+  C --> O[OpenAI gpt-4o-mini]
+  O --> R[Relatórios HTML e Markdown]
+```
 
-*   **Fortalecimento da Infraestrutura Crítica**: Proteção dos sistemas que sustentam a economia e a segurança do Brasil.
-*   **Inclusão Financeira Soberana**: Democratização do acesso a ativos digitais seguros e controlados nacionalmente.
-*   **Liderança em IA Soberana**: Posicionamento do Brasil como protagonista no desenvolvimento de inteligência artificial ética e alinhada aos valores nacionais.
+- Python (linguagem reportada pelo GitHub; main.py).
+- Python >=3.11, conforme pyproject.toml.
+- Dependências declaradas: specklepy >=3.2.4, speckle-automate >=0.1.0, openai >=2.31.0 e pydantic >=2.13.0.
+- Dependências opcionais de desenvolvimento declaradas: mypy, pytest e ruff; sua presença não comprova execução de testes.
+- O código também importa flatten.flatten_base, mas não há módulo correspondente na árvore nem dependência `flatten` declarada no manifesto.
 
-## ⚙️ Arquitetura do Sistema
+## Início rápido
 
-O fluxo de valor e dados da Operação Canário Amarelo é desenhado para máxima eficiência e segurança:
+Os comandos abaixo refletem instruções, manifestos ou pontos de entrada presentes no repositório. Dependências externas, segredos e serviços estão indicados quando aplicável; a presença de um comando não equivale a uma execução validada.
 
-![Arquitetura Canário Amarelo](/home/ubuntu/Can-rio-amarelo-/assets/architecture_canario.png)
+1. Instalação: não há comando de instalação documentado no README nem arquivo de lock/requisitos na árvore. pyproject.toml declara dependências e requer Python >=3.11, mas não prescreve um procedimento de instalação.
+2. Execução: main.py contém um bloco `if __name__ == "__main__"` que chama `execute_automate_function(automate_function, FunctionInputs)`, permitindo identificar o ponto de entrada. O README não informa comando de execução; não foi validada execução local e a importação `flatten` não está declarada/visível no repositório.
 
-## 🛠️ Implementação Técnica
 
-O projeto utiliza uma integração avançada entre a plataforma Speckle e a IA Aurora para auditoria e análise de dados críticos:
+## Exemplo de uso
 
-1.  **Ingestão de Dados**: Captura de modelos e informações via Speckle Automate.
-2.  **Processamento Local**: Análise primária realizada em servidores em território nacional.
-3.  **Auditoria IA Aurora**: Inteligência artificial especializada em detectar inconsistências e riscos estratégicos.
-4.  **Tokenização Aurora**: Registro de integridade e valor na rede blockchain soberana.
+Exemplo compatível com as interfaces do código: em execução via Speckle Automate, fornecer o campo obrigatório `openai_api_key` e, opcionalmente, `analysis_prompt` (há um prompt padrão); a função recebe a versão pelo AutomationContext e armazena os arquivos `relatorio_canario.html` e `relatorio_canario.md` como resultados. Isso descreve o fluxo implementado, não comprova uma implantação funcional ou serviço Aurora próprio.
 
-## 🤝 Colaboração Nacional
+## Estado e limitações
 
-Convidamos desenvolvedores, pesquisadores e patriotas a contribuírem para este projeto. A soberania tecnológica é uma construção coletiva que exige o melhor do talento brasileiro.
+**Maturidade indicada:** Experimental.
 
----
+- Não apresentar soberania de dados, processamento em infraestrutura brasileira, IA Aurora própria, blockchain ou emissão de Tokens Aurora como capacidades comprovadas pelo código. A chamada é para OpenAI; embora os objetos não sejam incluídos diretamente na mensagem, o resumo de tipos/contagens é enviado ao serviço externo.
+- O código limita a contagem a `flat_objects[:150]`, mas inclui o total de objetos no resumo; documentar essa distinção para não sugerir análise integral dos elementos.
+- Não afirmar que testes passam, que a função foi implantada ou que os comandos funcionam: nenhum resultado de execução/teste foi verificado.
+- A inconsistência de dependência `flatten` pode impedir inicialização num ambiente instalado apenas com as dependências listadas.
 
-**Desenvolvido por Felipe Aquino - Impulso Digital**
-*Liderando a revolução da IA Soberana no Brasil.*
+## Contribuição
 
-![Logo Canário Amarelo](/home/ubuntu/Can-rio-amarelo-/assets/logo_canario.png)
+Leia [CONTRIBUTING.md](CONTRIBUTING.md) antes de abrir uma issue ou pull request. Para reportes de segurança, siga a orientação específica do repositório, se houver.
+
+## Licença
+
+Este repositório está licenciado sob **Apache-2.0**; consulte [LICENSE](LICENSE).
+
+## Patrocínio e apoio
+
+O desenvolvimento aberto exige tempo para manutenção, documentação, testes, revisão de contribuições e resposta a issues. Se este projeto for útil, considere apoiar a continuidade pelo [GitHub Sponsors](https://github.com/sponsors/felipetjmg1-bit). O apoio não representa promessa de funcionalidades, prazo de entrega ou suporte comercial.
+
+[![Patrocinar felipetjmg1-bit](https://img.shields.io/badge/Patrocinar%20no-GitHub%20Sponsors-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/felipetjmg1-bit)
