@@ -2,6 +2,12 @@
 
 # Canário Amarelo — Função Speckle Automate
 
+
+<p align="center">
+  <img src="PROJECT-OVERVIEW.svg" alt="Diagrama de funcionalidades de Canário Amarelo · Speckle" width="100%">
+</p>
+
+
 ## Visão geral
 
 O README apresenta a Operação Canário Amarelo como uma iniciativa de soberania digital ligada à Impulso Digital, IA, blockchain e Tokens Aurora. O código público verificável, porém, implementa uma função Speckle Automate: recebe a versão de um modelo, conta tipos de objetos numa amostra de até 150 e envia esse resumo textual à API OpenAI (modelo gpt-4o-mini) para gerar relatórios HTML e Markdown. Não há implementação visível de tokenização ou de integração com blockchain; portanto, descreva isso como objetivo declarado, não como recurso implementado.
@@ -64,3 +70,8 @@ Este repositório está licenciado sob **Apache-2.0**; consulte [LICENSE](LICENS
 O desenvolvimento aberto exige tempo para manutenção, documentação, testes, revisão de contribuições e resposta a issues. Se este projeto for útil, considere apoiar a continuidade pelo [GitHub Sponsors](https://github.com/sponsors/felipetjmg1-bit). O apoio não representa promessa de funcionalidades, prazo de entrega ou suporte comercial.
 
 [![Patrocinar felipetjmg1-bit](https://img.shields.io/badge/Patrocinar%20no-GitHub%20Sponsors-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/felipetjmg1-bit)
+
+
+---
+
+**Empresa responsável:** Impulso Digital Soluções em IA.
