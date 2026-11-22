@@ -1,4 +1,4 @@
-![Status: Experimental](https://img.shields.io/badge/Status-Em%20desenvolvimento-blue) | [![Licença Apache-2.0](https://img.shields.io/github/license/felipetjmg1-bit/Can-rio-amarelo-)](LICENSE) | [![Patrocinar](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/felipetjmg1-bit)
+![Status: Automação BIM em desenvolvimento](https://img.shields.io/badge/Status-Em%20desenvolvimento-blue) | [![Licença Apache-2.0](https://img.shields.io/github/license/felipetjmg1-bit/Can-rio-amarelo-)](LICENSE) | [![Patrocinar](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-ea4aaa?logo=githubsponsors)](https://github.com/sponsors/felipetjmg1-bit)
 
 # Canário Amarelo — Função Speckle Automate
 
@@ -50,7 +50,7 @@ Exemplo compatível com as interfaces do código: em execução via Speckle Auto
 
 ## Estado e limitações
 
-**Maturidade indicada:** Experimental.
+**Estado de entrega:** função Speckle Automate em desenvolvimento.
 
 - Não apresentar soberania de dados, processamento em infraestrutura brasileira, IA Aurora própria, blockchain ou emissão de Tokens Aurora como capacidades comprovadas pelo código. A chamada é para OpenAI; embora os objetos não sejam incluídos diretamente na mensagem, o resumo de tipos/contagens é enviado ao serviço externo.
 - O código limita a contagem a `flat_objects[:150]`, mas inclui o total de objetos no resumo; documentar essa distinção para não sugerir análise integral dos elementos.
